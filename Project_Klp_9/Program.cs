@@ -1,3 +1,6 @@
+using Project_Klp_9.Models;
+using Project_Klp_9.Presenter;
+
 namespace Project_Klp_9
 {
     internal static class Program
@@ -8,10 +11,14 @@ namespace Project_Klp_9
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            // Jalankan form login terlebih dahulu
+            IView loginView = new LoginForm();
+            UserRepository userRepository = new UserRepository();
+            new LoginPresenters(loginView, userRepository);
+
+            Application.Run((Form)loginView);
         }
     }
 }
