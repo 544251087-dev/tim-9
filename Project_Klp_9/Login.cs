@@ -18,7 +18,8 @@ namespace Project_Klp_9
             UserRepository repo = new UserRepository();
             presenter = new LoginPresenters(this, repo);
 
-            button1.Click += delegate {
+            button1.Click += delegate
+            {
                 LoginEvent?.Invoke(this, EventArgs.Empty);
                 ShowResult();
             };
@@ -58,14 +59,40 @@ namespace Project_Klp_9
 
         public event EventHandler LoginEvent;
 
-        public void ShowResult()
+        //public void ShowResult()
+        //{
+        //    //if (isLoginSuccesful)
+        //    //{
+        //    //    MessageBox.Show(Message, "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //    //    dashboard mainForm = new dashboard();
+        //    //    mainForm.Show();
+        //    //    this.Hide();
+        //    //}
+        //    //else
+        //    //{
+        //    //    MessageBox.Show(Message, "Gagal Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    //}
+        //}
+
+        private void ShowResult()
         {
-            if (isLoginSuccesful)
+            if (isLoginSuccesful && comboBox1.Text == "Siswa")
             {
                 MessageBox.Show(Message, "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                dashboard mainForm = new dashboard();
-                mainForm.Show();
+                dashboardsiswa mainSiswa = new dashboardsiswa();
+                mainSiswa.Show();
+                this.Hide();
+
+
+            }
+            else if (isLoginSuccesful && comboBox1.Text == "Guru")
+            {
+                MessageBox.Show(Message, "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dashboard mainGuru = new dashboard();
+                mainGuru.Show();
                 this.Hide();
             }
             else

@@ -32,7 +32,9 @@ namespace Project_Klp_9.Models
                                 Id = reader.GetInt32("id"),
                                 users = reader.GetString("username"),
                                 password = reader.GetString("password_hash"),
-                                role = reader.GetString("role")
+                                role = reader.GetString("role"),
+                                poinjiwa = reader.GetInt32("poinjiwa"),
+                                poinpelanggaran = reader.GetInt32("poinpelanggaran")
                             };
                         }
                     }
