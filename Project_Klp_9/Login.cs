@@ -21,6 +21,10 @@ namespace Project_Klp_9
             button1.Click += delegate
             {
                 LoginEvent?.Invoke(this, EventArgs.Empty);
+                if (users != null && Password != null && role != null)
+                {
+                    Program.currentUser = repo.authenticate(users, Password, role);
+                }
                 ShowResult();
             };
         }

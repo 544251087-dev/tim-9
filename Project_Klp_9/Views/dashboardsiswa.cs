@@ -14,19 +14,31 @@ namespace Project_Klp_9.Views
 {
     public partial class dashboardsiswa : Form
     {
-        private Model CurrentUser;
+        private Model currentUser;
+        private void DisplayUser(Model user)
+        {
+            if (user != null)
+            {
+                label4.Text = user.users;
+                label12.Text = user.poinpelanggaran.ToString();
+                label11.Text = user.poinjiwa.ToString();
+            }
+            else
+            {
+                label4.Text = "Anda Gagal Login";
+                label12.Text = "0";
+                label11.Text = "0";
+            }
+
+        }
         public dashboardsiswa()
         {
-            InitializeComponent();        }
-
-        private void dashboardsiswa_Load(Model user)
-        {
-            if (user.role == "siswa")
-            {
-                label11.Text = user.poinjiwa.ToString(); // Menampilkan poin jiwa
-                label12.Text = user.poinpelanggaran.ToString(); // Menampilkan poin pelanggaran
-            }
+            InitializeComponent();
+            currentUser = Program.currentUser;
+            DisplayUser(currentUser);
         }
+
+
 
         private void label9_Click(object sender, EventArgs e)
         {
@@ -40,7 +52,7 @@ namespace Project_Klp_9.Views
 
         private void label4_Click(object sender, EventArgs e)
         {
-
+            //nama siswa
         }
 
         private void label3_Click(object sender, EventArgs e)

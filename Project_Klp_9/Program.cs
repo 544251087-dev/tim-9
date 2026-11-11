@@ -5,9 +5,8 @@ namespace Project_Klp_9
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        public static Model currentUser; // Menyimpan data pengguna yang login
+        public static UserRepository userRepository = new UserRepository(); // Instance UserRepository untuk digunakan di seluruh aplikasi
         [STAThread]
         static void Main()
         {
